@@ -1,4 +1,5 @@
 PollywogRanchRailsRuby003::Application.routes.draw do
+  get '/' => 'application#index'
   resources :frogs
   resources :ponds
   resources :tadpoles
