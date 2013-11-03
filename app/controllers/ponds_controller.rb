@@ -16,10 +16,7 @@ class PondsController < ApplicationController
     @pond = Pond.new(pond_params)
     if @pond.save
       redirect_to(@pond)
-    else
-      "Error"
     end
-else
   end
 
   def update
