@@ -35,7 +35,6 @@ class FrogsController < ApplicationController
     end
   end
 
-
   private
 
   def set_frog
