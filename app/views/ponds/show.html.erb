@@ -6,7 +6,7 @@
     <li><%= link_to "#{frog.name}", frog %>
       <ol>
         <% frog.tadpoles.each do |tadpole| %>
-          <li><a href="/tadpoles/<%= tadpole.id %>"><%= link_to "#{tadpole.name}" %> tadpole</a></li>
+          <li><%= link_to "#{tadpole.name}", tadpole %></li>
         <% end %>
       </ol>
     </li>

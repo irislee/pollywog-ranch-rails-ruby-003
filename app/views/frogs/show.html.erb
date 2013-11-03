@@ -10,6 +10,9 @@
   </ol><br>
 <% end %>
 <p><strong><a href="/frogs/<%= @frog.id %>/tadpoles/new">Create new tadpole baby</a></strong></p>
-<a href="/frogs">Back</a> | 
-<a href="/frogs/<%= @frog.id %>/edit">Edit</a> | 
-<a href="/frogs/<%= @frog.id %>/destroy">Delete</a>
+<%= link_to 'Back', frogs_path %> | 
+<%= link_to 'Edit', edit_frog_path %> | 
+<%= link_to 'Destroy', @frog, :method=>:delete %>
+
+
+<%#= link_to "#{tadpole.name}", tadpole %>

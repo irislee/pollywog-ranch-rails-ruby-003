@@ -26,6 +26,7 @@ class FrogsController < ApplicationController
   end
 
   def edit
+    @ponds = Pond.all
   end
 
   def destroy
