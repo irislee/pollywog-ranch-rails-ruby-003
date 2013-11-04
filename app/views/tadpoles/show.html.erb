@@ -1,8 +1,15 @@
 <h1><%= @tadpole.name %> Tadpole</h1>
 <p>color: <%= @tadpole.color %></p>
-<p>parent: <a href="/frogs/<%= @tadpole.frog.id %>"><%= @tadpole.frog.name %></a></p>
-<p>lives: <a href="/ponds/<%= @tadpole.frog.id %>"><%= @tadpole.frog.pond.name %></a></p>
-<p><strong><a href="/tadpoles/<%= @tadpole.id %>/evolve">Evolve to frog</a></strong></p>
-<a href="/tadpoles">Back</a> | 
-<a href="/tadpoles/<%= @tadpole.id %>/edit">Edit</a> | 
-<a href="/tadpoles/<%= @tadpole.id %>/destroy">Delete</a>
+<p>parent: <%= link_to "#{@tadpole.frog.name}", frog_path %></p>
+<p>lives: <%= link_to "#{@tadpole.frog.pond.name}", pond_path %></p>
+<p><strong><%= link_to "Evolve to frog", @tadpole.id.to_s + "/evolve", :controller => "tadpole", :method => "evolve" %></strong></p>
+<%= link_to 'Back', tadpoles_path %> | 
+<%= link_to 'Edit', edit_tadpole_path %> | 
+<%= link_to 'Destroy', @tadpole, :method=>:delete %>
+
+
+
+<!-- <a href="/tadpoles/<%#= @tadpole.id %>/evolve">Evolve to frog</a>
+<a href="/tadpoles/<%#= @tadpole.id %>/evolve">Evolve to frog</a> -->
+
+

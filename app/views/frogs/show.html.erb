@@ -1,18 +1,17 @@
 <h1><%= @frog.name %> Frog</h1>
 <p>Color: <%= @frog.color %></p>
-<p>Lives: <a href="/ponds/<%= @frog.pond.id %>"><%= @frog.pond.name %></a></p>
+<p>Lives: <%= link_to "#{@frog.pond.name}", pond_path %></p>
 <% unless @frog.tadpoles.empty? %>
   <h2>Children</h2>
   <ol>
     <% @frog.tadpoles.each do |tadpole| %>
-      <li><a href="/tadpoles/<%= tadpole.id %>"><%= tadpole.name %></a></li>
+      <li><%= link_to "#{tadpole.name}", tadpole %></li>
     <% end %>
   </ol><br>
 <% end %>
-<p><strong><a href="/frogs/<%= @frog.id %>/tadpoles/new">Create new tadpole baby</a></strong></p>
+<p><strong><%= link_to 'Create new tadpole baby', "/frogs/" + @frog.id.to_s + "/tadpoles/new", :controller => "tadpoles", :action => "new"%></strong></p>
+
 <%= link_to 'Back', frogs_path %> | 
 <%= link_to 'Edit', edit_frog_path %> | 
 <%= link_to 'Destroy', @frog, :method=>:delete %>
 
-
-<%#= link_to "#{tadpole.name}", tadpole %>

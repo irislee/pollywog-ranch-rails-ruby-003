@@ -6,16 +6,16 @@ class TadpolesController < ApplicationController
   end
 
   def new
+    @frog = Frog.find_by(:id => params[:id])
     @tadpole = Tadpole.new
-    @frog = Frog.find_by(:id => params[:frog_id])
   end
 
   def show
   end
 
   def create
-    @tadpole = Tadpole.new(tadpole_params)
-    @tadpole.frog = Frog.find_by(:id => params[:frog_id])
+   @tadpole = Tadpole.new(tadpole_params)
+   @frog = Frog.find_by(:id => params[:id])
     if @tadpole.save
       redirect_to(@tadpole)
     end
@@ -37,12 +37,24 @@ class TadpolesController < ApplicationController
     end
   end
 
+  def evolve
+    @tadpole = Tadpole.find_by(:id => params[:id])
+    @frog = Frog.new
+    @frog.name = @tadpole.name
+    @frog.color = @tadpole.color
+    @frog.pond = @tadpole.frog.pond
+    if @frog.save && @tadpole.destroy
+      redirect_to(@frog)
+    end
+  end
+
   private
   def set_tadpole
     @tadpole = Tadpole.find(params[:id])
   end
 
   def tadpole_params
-    params.require(:tadpole).permit(:name, :frog_color, :frog_id)
+    # params.require(:frog).permit(tadpole: [:name, :frog_color, :frog_id])
+    params.require(:tadpole).permit(:name, :color, :frog_id)
   end
 end
