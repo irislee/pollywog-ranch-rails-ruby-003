@@ -1,16 +1,5 @@
 <h1>Edit <%= @pond.name %></h1>
 
-<%= form_for(@pond) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :water_type %><br>
-    <%= f.text_field :water_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+<%= render "form" %>
+
 <%= link_to 'Cancel', @pond %>

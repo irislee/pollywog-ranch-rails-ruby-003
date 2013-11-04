@@ -1,20 +1,5 @@
 <h1>Edit <%= @frog.name %></h1>
 
-<%= form_for(@frog) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :lives %><br>
-    <%= f.collection_select :pond_id, @ponds, :id, :name %>   
-  </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+<%= render "form" %>
+
 <%= link_to 'Cancel', @frog %>

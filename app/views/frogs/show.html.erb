@@ -9,7 +9,7 @@
     <% end %>
   </ol><br>
 <% end %>
-<p><strong><%= link_to 'Create new tadpole baby', "/frogs/" + @frog.id.to_s + "/tadpoles/new", :controller => "tadpoles", :action => "new"%></strong></p>
+<p><strong><%= link_to "Create new tadpole baby", tadpole_new_path %></strong></p>
 
 <%= link_to 'Back', frogs_path %> | 
 <%= link_to 'Edit', edit_frog_path %> | 
